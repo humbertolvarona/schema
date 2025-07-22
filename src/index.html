@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagrams Portal | D2, Mermaid & Nomnoml</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="container">
+      <div class="logo">
+        <img src="icons/logo.svg" alt="Logo" width="48" height="48" />
+        <span>Diagrams as Code</span>
+      </div>
+      <button
+        id="theme-toggle"
+        class="theme-toggle-btn"
+        aria-label="Toggle theme"
+      ></button>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <h1>A Creative Portal for Your Diagrams</h1>
+        <p>
+          Explore the power of generating complex diagrams from simple text.
+          Choose your tool and start creating.
+        </p>
+      </section>
+
+      <section class="tools-grid container">
+        <a
+          href="./d2/index.html"
+          class="card-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <article class="card">
+            <img src="./images/d2.jpeg" alt="D2 Logo" class="card-image" />
+            <div class="card-content">
+              <h2>D2</h2>
+              <p>
+                A modern diagramming language that turns text into high-quality
+                schematics. Ideal for software architecture and complex systems.
+              </p>
+              <span class="card-button">Open D2 Editor</span>
+            </div>
+          </article>
+        </a>
+        <a
+          href="./mermaid/index.html"
+          class="card-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <article class="card">
+            <img
+              src="./images/mermaid.jpeg"
+              alt="Mermaid Logo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h2>Mermaid</h2>
+              <p>
+                Generate Markdown-style diagrams and flowcharts. It's fast, easy
+                to learn, and integrates perfectly into your documentation.
+              </p>
+              <span class="card-button">Try Mermaid</span>
+            </div>
+          </article>
+        </a>
+        <a
+          href="./nomnoml/index.html"
+          class="card-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <article class="card">
+            <img
+              src="./images/nomnoml.jpeg"
+              alt="Nomnoml Logo"
+              class="card-image"
+            />
+            <div class="card-content">
+              <h2>Nomnoml</h2>
+              <p>
+                A minimalist tool with a fun syntax for drawing UML diagrams.
+                Perfect for quick sketches and clear visualizations.
+              </p>
+              <span class="card-button">Use Nomnoml</span>
+            </div>
+          </article>
+        </a>
+      </section>
+
+      <section class="info-section container">
+        <h2>Explore the Tools</h2>
+        <div class="info-grid">
+          <article class="info-item">
+            <h3>D2: The Professional</h3>
+            <p>
+              D2 uses an advanced layout engine (ELK) to automatically arrange
+              your diagrams, regardless of complexity. It offers themes, a
+              sketch mode for an informal look, and the ability to create
+              production-level diagrams that always look perfect.
+            </p>
+            <a href="./help/d2-help.html" class="learn-more-link"
+              >Learn More &rarr;</a
+            >
+          </article>
+          <article class="info-item">
+            <h3>Mermaid: The Standard</h3>
+            <p>
+              If you've ever seen a diagram on GitHub or GitLab, it was likely
+              Mermaid. Its Markdown-like syntax makes it incredibly popular and
+              easy to integrate into documentation. It's the go-to choice for
+              workflows, sequences, and Gantt charts.
+            </p>
+            <a href="./help/mermaid-help.html" class="learn-more-link"
+              >Learn More &rarr;</a
+            >
+          </article>
+          <article class="info-item">
+            <h3>Nomnoml: The Artist</h3>
+            <p>
+              Nomnoml shines with its simplicity and visual syntax. It's the
+              perfect tool for 'drawing on a digital napkin.' If you need a
+              quick UML diagram to explain an idea in a meeting, Nomnoml's
+              simple syntax and clean output are unbeatable.
+            </p>
+            <a href="./help/nomnoml-help.html" class="learn-more-link"
+              >Learn More &rarr;</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-about">
+          <h4>Diagrams as Code</h4>
+          <p>
+            This portal is a showcase for exploring powerful text-based
+            diagramming tools. Created to facilitate access and experimentation.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>D2</h4>
+            <a href="d2.html">
+              <img
+                src="icons/home.svg"
+                class="icon"
+                alt="D2 icon"
+                width="24"
+                height="24"
+              />
+              Official Site
+            </a>
+            <a href="d2-doc.html">
+              <img
+                src="icons/docs.svg"
+                class="icon"
+                alt="D2 docs"
+                width="24"
+                height="24"
+              />
+              Documentation
+            </a>
+          </div>
+          <div class="link-group">
+            <h4>Mermaid</h4>
+            <a href="mermaid.html">
+              <img
+                src="icons/home.svg"
+                class="icon"
+                alt="Mermaid icon"
+                width="24"
+                height="24"
+              />
+              Official Site
+            </a>
+            <a href="mermaid-doc.html">
+              <img
+                src="icons/docs.svg"
+                class="icon"
+                alt="Mermaid docs"
+                width="24"
+                height="24"
+              />
+              Documentation
+            </a>
+          </div>
+          <div class="link-group">
+            <h4>Nomnoml</h4>
+            <a href="nomnoml.html">
+              <img
+                src="icons/home.svg"
+                class="icon"
+                alt="Nomnoml icon"
+                width="24"
+                height="24"
+              />
+              Official Site
+            </a>
+            <a href="nomnoml-repo.html">
+              <img
+                src="icons/docs.svg"
+                class="icon"
+                alt="Nomnoml repo"
+                width="24"
+                height="24"
+              />
+              Repository
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 - Diagrams Portal. Created by HL Varona.</p>
+      </div>
+    </footer>
+  </body>
+</html>
