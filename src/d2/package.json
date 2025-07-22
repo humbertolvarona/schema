@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@terrastruct/d2": "^0.1.23"
+  }
+}

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Complete Nomnoml Diagramming Guide | Diagrams Portal</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+        /* Enhanced styling for comprehensive guide */
+        .diagram-type {
+            background-color: var(--diagram-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid var(--diagram-accent);
+        }
+        .syntax-card {
+            background: var(--syntax-bg);
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .example-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .example-comparison pre {
+            margin: 0;
+        }
+        .use-case {
+            background: var(--case-bg);
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        .advanced-feature {
+            background: var(--advanced-bg);
+            border-left: 4px solid var(--advanced-accent);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .cheat-sheet {
+            columns: 2;
+            column-gap: 30px;
+        }
+        .relationship-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .relationship-table th, .relationship-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+        }
+        .relationship-table th {
+            background-color: var(--table-header-bg);
+        }
+        @media (max-width: 768px) {
+            .example-comparison {
+                grid-template-columns: 1fr;
+            }
+            .cheat-sheet {
+                columns: 1;
+            }
+        }
+    </style>
+    <script src="../script.js" defer></script>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">
+            <img src="../icons/documentation.svg" width="48" height="48" alt="Nomnoml Icon" />
+            <span>Nomnoml Complete Reference</span>
+        </div>
+        
+        <a href="../index.html" class="portal-link">Back to Portal</a>
+        <button
+        id="theme-toggle"
+        class="theme-toggle-btn"
+        aria-label="Toggle theme"
+      ></button>
+    </header>
+
+    <main class="container help-content">
+        <h1>The Complete Nomnoml Diagramming Guide</h1>
+        <p class="subtitle">
+            Master UML diagramming with Nomnoml - from basic syntax to advanced modeling techniques, 
+            with hundreds of practical examples and professional best practices.
+        </p>
+
+        <section class="help-section">
+            <h2>1. Nomnoml Fundamentals</h2>
+            
+            <div class="diagram-type">
+                <h3>1.1 Core Concepts</h3>
+                <p>Nomnoml transforms text definitions into UML diagrams using a simple but powerful syntax:</p>
+                
+                <div class="syntax-card">
+                    <h4>Basic Structure</h4>
+                    <pre><code>// Comments start with //
+[NodeName]
+[<classifier> TypeName| attributes; --; methods]
+[Node1] -> [Node2] : relationship</code></pre>
+                </div>
+                
+                <div class="example-comparison">
+                    <div>
+                        <h4>Text Definition</h4>
+                        <pre><code>[<class> User| 
+  +username: string; 
+  +email: string;
+  --
+  +login();
+  +logout()
+]
+[User] -> [Session]</code></pre>
+                    </div>
+                    <div>
+                        <h4>Rendered Diagram</h4>
+                        <div class="diagram-preview">
+                            <!-- Diagram would render here -->
+                            [UML Class Diagram visualization]
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Key Advantages</h4>
+                    <ul>
+                        <li><strong>Text-Based:</strong> Version control friendly diagrams as code</li>
+                        <li><strong>Rapid Prototyping:</strong> Create diagrams faster than drag-and-drop tools</li>
+                        <li><strong>UML Compliant:</strong> Supports standard UML notation</li>
+                        <li><strong>Customizable:</strong> Full control over styling and layout</li>
+                        <li><strong>Embeddable:</strong> Works in documentation, wikis, and web apps</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>2. Node Types and Classifiers</h2>
+            
+            <div class="diagram-type">
+                <h3>2.1 Standard Classifiers</h3>
+                <table class="relationship-table">
+                    <thead>
+                        <tr>
+                            <th>Classifier</th>
+                            <th>Syntax</th>
+                            <th>Appearance</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Class</td>
+                            <td><code>[&lt;class&gt; Name]</code></td>
+                            <td>Rectangle with solid border</td>
+                            <td>Standard UML class</td>
+                        </tr>
+                        <tr>
+                            <td>Abstract</td>
+                            <td><code>[&lt;abstract&gt; Name]</code></td>
+                            <td>Italicized header</td>
+                            <td>Abstract classes</td>
+                        </tr>
+                        <tr>
+                            <td>Interface</td>
+                            <td><code>[&lt;interface&gt; Name]</code></td>
+                            <td>Header with «interface» or styled differently</td>
+                            <td>Interfaces</td>
+                        </tr>
+                        <tr>
+                            <td>Actor</td>
+                            <td><code>[&lt;actor&gt; Name]</code></td>
+                            <td>Stick figure</td>
+                            <td>Use case actors</td>
+                        </tr>
+                        <tr>
+                            <td>Note</td>
+                            <td><code>[&lt;note&gt; Text]</code></td>
+                            <td>Rounded rectangle</td>
+                            <td>Annotations</td>
+                        </tr>
+                        <tr>
+                            <td>Package</td>
+                            <td><code>[&lt;package&gt; Name]</code></td>
+                            <td>Folder-style shape</td>
+                            <td>Namespace grouping</td>
+                        </tr>
+                        <tr>
+                            <td>Database</td>
+                            <td><code>[&lt;database&gt; Name]</code></td>
+                            <td>Cylinder shape</td>
+                            <td>Database entities</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 Node Structure</h3>
+                <div class="syntax-card">
+                    <h4>Full Node Syntax</h4>
+                    <pre><code>[&lt;classifier&gt; Name|
+  +publicAttribute: type;
+  -privateAttribute: type;
+  #protectedAttribute: type;
+  --
+  +publicMethod();
+  -privateMethod();
+  #protectedMethod()
+]</code></pre>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Advanced Node Features</h4>
+                    <div class="example-comparison">
+                        <div>
+                            <h5>Multi-line Nodes</h5>
+                            <pre><code>[<class> Product|
+  +id: string;
+  +name: string;
+  +price: float;
+  --
+  +calculateDiscount();
+  +applyPromoCode(code)
+]</code></pre>
+                        </div>
+                        <div>
+                            <h5>Static Members</h5>
+                            <pre><code>[<class> MathUtils|
+  --
+  +{static} PI: float;
+  +{static} calculateArea()
+]</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>3. Relationships and Connectors</h2>
+            
+            <div class="diagram-type">
+                <h3>3.1 Relationship Types</h3>
+                <table class="relationship-table">
+                    <thead>
+                        <tr>
+                            <th>Relationship</th>
+                            <th>Syntax</th>
+                            <th>Arrow</th>
+                            <th>UML Equivalent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Association</td>
+                            <td><code>[A] - [B]</code></td>
+                            <td>───</td>
+                            <td>Simple association</td>
+                        </tr>
+                        <tr>
+                            <td>Directed Association</td>
+                            <td><code>[A] -> [B]</code></td>
+                            <td>───▶</td>
+                            <td>Directed association</td>
+                        </tr>
+                        <tr>
+                            <td>Bidirectional Association</td>
+                            <td><code>[A] <-> [B]</code></td>
+                            <td>◀───▶</td>
+                            <td>Bidirectional association</td>
+                        </tr>
+                        <tr>
+                            <td>Inheritance</td>
+                            <td><code>[A] --|> [B]</code></td>
+                            <td>───▷</td>
+                            <td>Generalization</td>
+                        </tr>
+                        <tr>
+                            <td>Interface Realization</td>
+                            <td><code>[A] ..|> [B]</code></td>
+                            <td>╍╍╍▷</td>
+                            <td>Interface realization</td>
+                        </tr>
+                        <tr>
+                            <td>Aggregation</td>
+                            <td><code>[A] o- [B]</code></td>
+                            <td>───◇</td>
+                            <td>Shared aggregation</td>
+                        </tr>
+                        <tr>
+                            <td>Composition</td>
+                            <td><code>[A] +- [B]</code></td>
+                            <td>───◆</td>
+                            <td>Composite aggregation</td>
+                        </tr>
+                        <tr>
+                            <td>Dependency</td>
+                            <td><code>[A] <.. [B]</code></td>
+                            <td>╌╌╌▶</td>
+                            <td>Dependency</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.2 Relationship Labels and Multiplicities</h3>
+                <div class="example-comparison">
+                    <div>
+                        <h4>Labeled Relationships</h4>
+                        <pre><code>[Customer] -> [Order] : places
+[Order] -> [Product] : contains 1..*</code></pre>
+                    </div>
+                    <div>
+                        <h4>Multiplicities</h4>
+                        <pre><code>[University] "1" -- "1..*" [Department]
+[Student] "0..*" -- "1..*" [Course]</code></pre>
+                    </div>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Advanced Relationship Techniques</h4>
+                    <div class="syntax-card">
+                        <h5>Reflexive Relationships</h5>
+                        <pre><code>[Employee] -> [Employee] : manages</code></pre>
+                    </div>
+                    
+                    <div class="syntax-card">
+                        <h5>Relationship Properties</h5>
+                        <pre><code>[Order] -> [Product] {
+  stroke: #ff0000;
+  width: 2;
+  label: "contains"
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>4. Directives and Styling</h2>
+            
+            <div class="diagram-type">
+                <h3>4.1 Core Directives</h3>
+                <div class="cheat-sheet">
+                    <div class="syntax-card">
+                        <h4>Layout Directives</h4>
+                        <ul>
+                            <li><code>#direction: right|down|left|up</code></li>
+                            <li><code>#padding: 10</code> - Diagram padding</li>
+                            <li><code>#spacing: 40</code> - Space between nodes</li>
+                            <li><code>#gutter: 20</code> - Space between lines</li>
+                            <li><code>#zoom: 1.0</code> - Scaling factor</li>
+                            <li><code>#align: left|center|right</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="syntax-card">
+                        <h4>Style Directives</h4>
+                        <ul>
+                            <li><code>#stroke: #333</code> - Border color</li>
+                            <li><code>#fill: #fff</code> - Background color</li>
+                            <li><code>#fill: #fff -> #eee</code> - Gradient</li>
+                            <li><code>#lineWidth: 1</code> - Border thickness</li>
+                            <li><code>#arrowSize: 1</code> - Arrowhead size</li>
+                            <li><code>#edges: hard|rounded</code></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>4.2 Typography Directives</h3>
+                <div class="cheat-sheet">
+                    <div class="syntax-card">
+                        <h4>Font Directives</h4>
+                        <ul>
+                            <li><code>#font: Helvetica</code></li>
+                            <li><code>#fontSize: 14</code></li>
+                            <li><code>#bold: true|false</code></li>
+                            <li><code>#italic: true|false</code></li>
+                            <li><code>#underline: true|false</code></li>
+                            <li><code>#fontColor: #333</code></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="syntax-card">
+                        <h4>Advanced Typography</h4>
+                        <ul>
+                            <li><code>#title: Diagram Title</code></li>
+                            <li><code>#titleFontSize: 18</code></li>
+                            <li><code>#titleUnderline: true</code></li>
+                            <li><code>#leading: 1.2</code> - Line height</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Advanced Styling Techniques</h4>
+                    <div class="syntax-card">
+                        <h5>Per-Element Styling</h5>
+                        <pre><code>[<class> User] {
+    fill: #e3f2fd;
+    stroke: #1976d2;
+    bold: true
+}</code></pre>
+                    </div>
+                    
+                    <div class="syntax-card">
+                        <h5>Theme Templates</h5>
+                        <pre><code>#darkTheme {
+    #fill: #333 -> #222;
+    #stroke: #eee;
+    #fontColor: #fff;
+    #arrowSize: 1.2;
+    #font: Futura
+}
+
+#apply: darkTheme</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>5. Layout Techniques and Grouping</h2>
+            
+            <div class="diagram-type">
+                <h3>5.1 Basic Layout Control</h3>
+                <div class="example-comparison">
+                    <div>
+                        <h4>Direction Control</h4>
+                        <pre><code>#direction: right
+[Start] -> [Process] -> [End]</code></pre>
+                    </div>
+                    <div>
+                        <h4>Spacing Adjustment</h4>
+                        <pre><code>#spacing: 60
+[Component1] -> [Component2]</code></pre>
+                    </div>
+                </div>
+                
+                <h3>5.2 Advanced Grouping Patterns</h3>
+                <div class="syntax-card">
+                    <h4>Visual Grouping with Notes</h4>
+                    <pre><code>[<note> Domain Layer]
+[User] -> [Account]
+[Account] -> [Transaction]
+
+[<note> Infrastructure Layer]
+[Database] <- [Repository]</code></pre>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Layout Optimization Techniques</h4>
+                    <div class="syntax-card">
+                        <h5>Invisible Nodes for Spacing</h5>
+                        <pre><code>[ServiceA] -> [ ] -> [ServiceB]
+[ ] - [ServiceC]</code></pre>
+                    </div>
+                    
+                    <div class="syntax-card">
+                        <h5>Forced Alignment</h5>
+                        <pre><code>#align: center
+[Gateway] -> [Service1]
+[Gateway] -> [Service2]</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>6. Design Pattern Examples</h2>
+            
+            <div class="diagram-type">
+                <h3>6.1 Singleton Pattern</h3>
+                <div class="syntax-card">
+                    <pre><code>#direction: right
+[<class> Singleton|
+  -static instance: Singleton;
+  --
+  +{static} getInstance()
+  -Singleton()
+]</code></pre>
+                </div>
+                
+                <h3>6.2 Observer Pattern</h3>
+                <div class="syntax-card">
+                    <pre><code>#direction: down
+[<interface> Subject|
+  +registerObserver();
+  +removeObserver();
+  +notifyObservers()
+]
+[<interface> Observer| +update()]
+[ConcreteSubject] --|> [<interface> Subject]
+[ConcreteObserver] ..|> [<interface> Observer]
+[ConcreteSubject] -> [ConcreteObserver]</code></pre>
+                </div>
+                
+                <h3>6.3 Strategy Pattern</h3>
+                <div class="syntax-card">
+                    <pre><code>#direction: right
+[<interface> Strategy| +execute()]
+[ConcreteStrategyA] ..|> [<interface> Strategy]
+[ConcreteStrategyB] ..|> [<interface> Strategy]
+[Context] -> [<interface> Strategy]</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>7. Architectural Diagrams</h2>
+            
+            <div class="diagram-type">
+                <h3>7.1 Layered Architecture</h3>
+                <div class="syntax-card">
+                    <pre><code>#direction: down
+#fill: #e3f2fd -> #bbdefb
+[<package> Presentation Layer|
+  [Controller]
+]
+[<package> Business Layer|
+  [Service]
+]
+[<package> Data Layer|
+  [Repository]
+]
+[Controller] -> [Service]
+[Service] -> [Repository]</code></pre>
+                </div>
+                
+                <h3>7.2 Microservices Architecture</h3>
+                <div class="syntax-card">
+                    <pre><code>#direction: right
+#stroke: #4caf50
+[API Gateway] -> [User Service]
+[API Gateway] -> [Order Service]
+[Order Service] -> [Payment Service]
+[Order Service] -> [Inventory Service]
+[<note> Async Communication]
+[Order Service] -> [Notification Service]</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>8. Integration and Automation</h2>
+            
+            <div class="diagram-type">
+                <h3>8.1 Markdown Integration</h3>
+                <div class="syntax-card">
+                    <pre><code>```nomnoml
+[<class> User| +name; +email]
+[User] -> [Account]
+```</code></pre>
+                    <p>Works in VS Code, Obsidian, and other Markdown editors with plugins</p>
+                </div>
+                
+                <h3>8.2 Web Integration</h3>
+                <div class="syntax-card">
+                    <pre><code>&lt;script src="nomnoml.js"&gt;&lt;/script&gt;
+&lt;div class="nomnoml"&gt;
+[<class> Product| +id; +name]
+&lt;/div&gt;
+&lt;script&gt;
+    nomnoml.drawAll();
+&lt;/script&gt;</code></pre>
+                </div>
+                
+                <div class="advanced-feature">
+                    <h4>Advanced Integration</h4>
+                    <div class="syntax-card">
+                        <h5>Dynamic Diagram Generation</h5>
+                        <pre><code>// Generate nomnoml code from data
+function generateClassDiagram(classes) {
+    let code = '#direction: down\n';
+    classes.forEach(cls => {
+        code += `[<class> ${cls.name}|\n`;
+        code += cls.attributes.map(attr => `  ${attr.visibility}${attr.name}`).join(';\n');
+        code += '\n]\n';
+    });
+    return code;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>9. Troubleshooting and Best Practices</h2>
+            
+            <div class="diagram-type">
+                <h3>9.1 Common Errors</h3>
+                <table class="relationship-table">
+                    <thead>
+                        <tr>
+                            <th>Error</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Unbalanced brackets</td>
+                            <td>Check all <code>[ ]</code> pairs</td>
+                        </tr>
+                        <tr>
+                            <td>Missing separators</td>
+                            <td>Use <code>;</code> between members and <code>--</code> between sections</td>
+                        </tr>
+                        <tr>
+                            <td>Invalid classifiers</td>
+                            <td>Use only supported types: <code>&lt;class&gt;</code>, <code>&lt;interface&gt;</code>, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Incorrect relationship syntax</td>
+                            <td>Use proper arrows: <code>-&gt;</code>, <code>--|&gt;</code>, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Directives not working</td>
+                            <td>Place directives at the top, prefixed with <code>#</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>9.2 Professional Best Practices</h3>
+                <ul>
+                    <li>Use consistent naming conventions (PascalCase for classes)</li>
+                    <li>Limit diagrams to 10-15 nodes for readability</li>
+                    <li>Use notes and grouping to organize large diagrams</li>
+                    <li>Define a standard style guide for your project's diagrams</li>
+                    <li>Version control your nomnoml source files</li>
+                    <li>Generate complex diagrams programmatically when possible</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>10. Resources and Next Steps</h2>
+            
+            <div class="diagram-type">
+                <h3>10.1 Official Resources</h3>
+                <ul>
+                    <li><a href="https://nomnoml.com">Nomnoml Playground</a></li>
+                    <li><a href="https://github.com/skanaar/nomnoml">GitHub Repository</a></li>
+                    <li><a href="https://github.com/skanaar/nomnoml/wiki">Official Wiki</a></li>
+                </ul>
+                
+                <h3>10.2 Learning Resources</h3>
+                <ul>
+                    <li><a href="https://www.uml-diagrams.org/">UML Diagrams Reference</a></li>
+                    <li><a href="https://refactoring.guru/design-patterns">Design Patterns</a></li>
+                    <li><a href="https://martinfowler.com/bliki/">Architecture Patterns</a></li>
+                </ul>
+                
+                <h3>10.3 Tools and Extensions</h3>
+                <ul>
+                    <li><a href="https://marketplace.visualstudio.com/items?itemName=danielroedl.nomnoml">VS Code Extension</a></li>
+                    <li><a href="https://github.com/skanaar/nomnoml-cli">Nomnoml CLI</a></li>
+                    <li><a href="https://github.com/skanaar/nomnoml-webpack-loader">Webpack Loader</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete D2 Language Mastery Guide | Diagrams Portal</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">
+            <img src="../icons/documentation.svg" width="48" height="48" alt="D2 Icon">
+            <span>D2 Complete Reference</span>
+        </div>
+        <a href="../index.html" class="portal-link">Back to Portal</a>
+        <button
+        id="theme-toggle"
+        class="theme-toggle-btn"
+        aria-label="Toggle theme"
+      ></button>
+    </header>
+
+    <main class="container help-content">
+        <h1>Complete D2 Language Mastery Guide</h1>
+        <p class="subtitle">The definitive reference for <strong>D2 diagram scripting</strong> - from fundamentals to expert techniques with hundreds of practical examples.</p>
+
+        <section class="help-section">
+            <h2>1. Introduction to D2</h2>
+            <p>
+                <strong>D2</strong> is a modern diagram scripting language that transforms text into professional diagrams. Unlike drag-and-drop tools, D2 provides:
+            </p>
+            <ul>
+                <li><strong>Version control friendly:</strong> Diagrams as code that can be diffed, merged, and reviewed</li>
+                <li><strong>Automated layout:</strong> Intelligent algorithms arrange elements optimally</li>
+                <li><strong>Consistency at scale:</strong> Maintain uniform styling across hundreds of diagrams</li>
+                <li><strong>Integration ready:</strong> Embed in docs, generate from CI/CD, or build automation</li>
+            </ul>
+            
+            <h3>1.1 Key Advantages Over Other Tools</h3>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>D2</th>
+                            <th>Drag-and-Drop Tools</th>
+                            <th>Other Text Diagrams</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maintainability</td>
+                            <td>✅ Text-based, versionable</td>
+                            <td>❌ Binary/proprietary formats</td>
+                            <td>✅ Text-based</td>
+                        </tr>
+                        <tr>
+                            <td>Layout Automation</td>
+                            <td>✅ Advanced algorithms</td>
+                            <td>❌ Manual positioning</td>
+                            <td>⚠️ Basic only</td>
+                        </tr>
+                        <tr>
+                            <td>Styling Control</td>
+                            <td>✅ Full CSS-like styling</td>
+                            <td>✅ Visual controls</td>
+                            <td>⚠️ Limited options</td>
+                        </tr>
+                        <tr>
+                            <td>Learning Curve</td>
+                            <td>✅ Simple syntax</td>
+                            <td>✅ Click-and-drag</td>
+                            <td>⚠️ Complex syntax</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>1.2 Real-World Use Cases</h3>
+            <div class="use-cases">
+                <div class="use-case">
+                    <h4>System Architecture</h4>
+                    <pre><code>direction: right
+
+client: Web Client
+cdn: CDN {
+    edge1: Edge Node
+    edge2: Edge Node
+}
+api: API Gateway
+services: {
+    direction: down
+    auth: Auth Service
+    orders: Order Service
+    inventory: Inventory Service
+}
+
+client -> cdn -> api -> services
+services.auth -> db: AuthDB {shape: cylinder}</code></pre>
+                </div>
+                <div class="use-case">
+                    <h4>CI/CD Pipeline</h4>
+                    <pre><code>direction: right
+
+dev: Developer Laptop
+repo: Git Repository
+ci: {
+    shape: oval
+    build: Build Stage
+    test: Test Stage
+    deploy: Deploy Stage
+}
+prod: Production
+
+dev -> repo: git push
+repo -> ci.build: triggers
+ci.build -> ci.test -> ci.deploy -> prod</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>2. Core Language Syntax</h2>
+            <p>
+                D2 syntax is designed to be intuitive while supporting complex diagram needs. The basic building blocks are:
+            </p>
+            
+            <h3>2.1 Shapes (Nodes)</h3>
+            <p>Fundamental elements that represent objects in your diagram:</p>
+            <pre><code># Minimal node (ID only)
+node1
+
+# Node with label
+node2: This is my label
+
+# Node with attributes
+node3: Label {
+    shape: circle
+    style: {
+        fill: "#f0f8ff"
+        stroke: "#4682b4"
+    }
+}</code></pre>
+
+            <h4>Shape Types Reference</h4>
+            <div class="shape-grid">
+                <div class="shape-example">
+                    <pre><code>rectangle: Rectangle {
+    shape: rectangle
+}</code></pre>
+                </div>
+                <div class="shape-example">
+                    <pre><code>circle: Circle {
+    shape: circle
+}</code></pre>
+                </div>
+                <div class="shape-example">
+                    <pre><code>diamond: Decision {
+    shape: diamond
+}</code></pre>
+                </div>
+                <div class="shape-example">
+                    <pre><code>cloud: AWS {
+    shape: cloud
+}</code></pre>
+                </div>
+                <div class="shape-example">
+                    <pre><code>cylinder: Database {
+    shape: cylinder
+}</code></pre>
+                </div>
+                <div class="shape-example">
+                    <pre><code>person: User {
+    shape: person
+}</code></pre>
+                </div>
+            </div>
+
+            <h3>2.2 Connections (Edges)</h3>
+            <p>Relationships between nodes with multiple styling options:</p>
+            <pre><code># Basic directed edge
+A -> B
+
+# Bidirectional connection
+C <-> D
+
+# Undirected link
+E -- F
+
+# Labeled edge
+G -> H: Processes data
+
+# Styled edge
+I -> J: Critical Path {
+    style: {
+        stroke: "#ff4500"
+        stroke-width: 3
+        stroke-dash: 0
+    }
+}</code></pre>
+
+            <h4>Connection Types</h4>
+            <pre><code># Standard arrow
+A -> B
+
+# Thick arrow
+C -> D: Thick {
+    style.stroke-width: 4
+}
+
+# Dashed line
+E -> F: Intermittent {
+    style.stroke-dash: 3
+}
+
+# Curved path
+G -> H: Curved {
+    style.curve: true
+}
+
+# Multi-segment
+I -> J -> K -> L</code></pre>
+
+            <h3>2.3 Comments</h3>
+            <p>Document your diagrams with comments:</p>
+            <pre><code># This is a single-line comment
+
+/*
+Multi-line comments
+are also supported
+*/
+
+service: API {
+    # Internal note about implementation
+    note: "Handles v2 requests only"
+}</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>3. Containers and Hierarchies</h2>
+            <p>
+                Containers organize related nodes into logical groups, supporting unlimited nesting:
+            </p>
+            
+            <h3>3.1 Basic Grouping</h3>
+            <pre><code># Simple container
+cloud_provider: AWS {
+    region1: us-east-1
+    region2: us-west-2
+}
+
+# Nested containers
+enterprise: {
+    network: {
+        dmz: DMZ Servers
+        internal: Internal Network
+    }
+    users: Employee Workstations
+}</code></pre>
+
+            <h3>3.2 Layout Control in Containers</h3>
+            <pre><code># Vertical layout (default)
+vertical_group: {
+    direction: down
+    item1: First
+    item2: Second
+    item3: Third
+}
+
+# Horizontal layout
+horizontal_group: {
+    direction: right
+    left: Start
+    middle: Process
+    right: End
+}
+
+# Grid layout
+dashboard: {
+    grid-rows: 2
+    grid-columns: 2
+    cell-1: {grid-row: 1; grid-col: 1}
+    cell-2: {grid-row: 1; grid-col: 2}
+    cell-3: {grid-row: 2; grid-col: 1 / span 2}
+}</code></pre>
+
+            <h3>3.3 Practical Container Examples</h3>
+            <div class="example-grid">
+                <div>
+                    <h4>Network Zones</h4>
+                    <pre><code>network: {
+    internet: Internet {
+        shape: cloud
+    }
+    
+    security: {
+        firewall: FW-01
+        ids: IDS Cluster
+    }
+    
+    internal: {
+        web: Web Servers
+        db: Database Cluster
+    }
+}
+
+internet -> security -> internal</code></pre>
+                </div>
+                <div>
+                    <h4>Organization Chart</h4>
+                    <pre><code>company: Acme Inc {
+    executives: {
+        ceo: Alice CEO
+        cto: Bob CTO
+    }
+    
+    engineering: {
+        backend: Team Backend
+        frontend: Team Frontend
+        qa: Quality Assurance
+    }
+}
+
+ceo -> cto
+cto -> engineering.backend
+cto -> engineering.frontend</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="help-section">
+            <h2>4. Advanced Shape Types</h2>
+            
+            <h3>4.1 SQL Tables</h3>
+            <pre><code>users: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    username: varchar(255)
+    email: varchar(255) {constraint: unique}
+    created_at: timestamp
+    updated_at: timestamp
+}
+
+posts: {
+    shape: sql_table
+    id: int {constraint: primary_key}
+    user_id: int {constraint: foreign_key}
+    title: text
+    content: text
+    published: boolean
+}
+
+users.id -> posts.user_id</code></pre>
+
+            <h3>4.2 UML Class Diagrams</h3>
+            <pre><code>vehicle: {
+    shape: class
+    # Public fields
+    +make: string
+    +model: string
+    # Private fields
+    -vin: string
+    # Protected fields
+    #mileage: number
+    --
+    +start(): boolean
+    +stop(): void
+    -checkEngine(): boolean
+}
+
+car: {
+    shape: class
+    +numDoors: number
+    --
+    +openTrunk(): void
+}
+
+vehicle <|-- car: Inheritance</code></pre>
+
+            <h3>4.3 Sequence Diagrams</h3>
+            <pre><code>sequence: {
+    shape: sequence_diagram
+    
+    user: User
+    ui: Frontend
+    api: Backend
+    db: Database
+    
+    user -> ui: Clicks button
+    ui -> api: POST /submit
+    api -> db: INSERT record
+    db -> api: OK
+    api -> ui: 200 Response
+    ui -> user: Success message
+}</code></pre>
+
+            <h3>4.4 Custom Icons and Images</h3>
+            <pre><code>services: {
+    web: {
+        label: "NGINX"
+        icon: "https://www.vectorlogo.zone/logos/nginx/nginx-icon.svg"
+    }
+    
+    db: {
+        label: "PostgreSQL"
+        icon: "https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg"
+    }
+    
+    cache: {
+        label: "Redis"
+        icon: "https://www.vectorlogo.zone/logos/redis/redis-icon.svg"
+    }
+}</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>5. Layout and Spacing Control</h2>
+            
+            <h3>5.1 Global Diagram Direction</h3>
+            <pre><code># Top-to-bottom (default)
+direction: down
+
+# Left-to-right
+direction: right
+
+# Bottom-to-top
+direction: up
+
+# Right-to-left
+direction: left</code></pre>
+
+            <h3>5.2 Local Layout Overrides</h3>
+            <pre><code>system: {
+    direction: down
+    
+    frontend: {
+        direction: right
+        react: React App
+        assets: CDN
+    }
+    
+    backend: {
+        direction: right
+        api: REST API
+        workers: Background Jobs
+    }
+}</code></pre>
+
+            <h3>5.3 Spacing and Gaps</h3>
+            <pre><code># Uniform gap between all nodes
+gap: 32
+
+# Different horizontal/vertical gaps
+hgap: 40
+vgap: 24
+
+# Container-specific gaps
+cluster: {
+    gap: 16
+    node1: First
+    node2: Second
+}</code></pre>
+
+            <h3>5.4 Advanced Layout Examples</h3>
+            <pre><code># Complex nested layout
+enterprise: {
+    direction: right
+    gap: 40
+    
+    offices: {
+        direction: down
+        hq: "New York"
+        branch1: "London"
+        branch2: "Tokyo"
+    }
+    
+    infrastructure: {
+        direction: down
+        gap: 24
+        
+        network: {
+            direction: right
+            dmz: External
+            internal: Private
+        }
+        
+        servers: {
+            direction: right
+            web: Web Tier
+            app: App Tier
+            db: Database
+        }
+    }
+}</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>6. Comprehensive Styling Guide</h2>
+            
+            <h3>6.1 Shape Styling</h3>
+            <pre><code>styled_node: Custom Shape {
+    shape: hexagon
+    style: {
+        fill: "#f5f5dc"
+        stroke: "#d2b48c"
+        stroke-width: 2
+        stroke-dash: 0
+        shadow: true
+        opacity: 0.9
+        border-radius: 8
+    }
+}</code></pre>
+
+            <h3>6.2 Edge Styling</h3>
+            <pre><code>source -> target: Connection {
+    style: {
+        stroke: "#9370db"
+        stroke-width: 3
+        stroke-dash: 5
+        arrowhead: diamond
+        curve: true
+    }
+}</code></pre>
+
+            <h3>6.3 Text Styling</h3>
+            <pre><code>label_node: Important Note {
+    style: {
+        font-size: 18
+        font-color: "#8b0000"
+        font-family: "Arial"
+        bold: true
+        italic: true
+        underline: true
+    }
+}</code></pre>
+
+            <h3>6.4 Themes and Sketch Mode</h3>
+            <pre><code># Enable sketch mode globally
+sketch: true
+
+# Dark theme example
+dark_theme: {
+    style: {
+        fill: "#222"
+        stroke: "#eee"
+        font-color: "#fff"
+    }
+}
+
+# Color palette definition
+colors: {
+    primary: "#4b0082"
+    secondary: "#9370db"
+    accent: "#ffd700"
+}</code></pre>
+
+            <h3>6.5 Style Inheritance</h3>
+            <pre><code># Base style for all nodes
+style: {
+    font-size: 14
+    fill: "#f8f8f8"
+}
+
+# Override for specific containers
+special_nodes: {
+    style: {
+        fill: "#fffacd"
+        stroke: "#ffa500"
+    }
+    
+    node1: Special One
+    node2: Special Two
+}</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>7. Documentation and Annotations</h2>
+            
+            <h3>7.1 Notes and Descriptions</h3>
+            <pre><code>critical_service: Payment Processor {
+    note: """
+    Handles all credit card transactions.
+    
+    Requirements:
+    - PCI-DSS compliant
+    - 99.99% uptime SLA
+    - Automated failover
+    
+    See architecture docs:
+    https://internal/wiki/payments
+    """
+}</code></pre>
+
+            <h3>7.2 Tooltips and Hover Text</h3>
+            <pre><code>db_replica: Read Replica {
+    tooltip: "Asynchronous copy of primary DB"
+}</code></pre>
+
+            <h3>7.3 Tags and Metadata</h3>
+            <pre><code>production: {
+    env: prod
+    owner: "Platform Team"
+    tier: 1
+    nodes: {
+        web1: Web Server
+        web2: Web Server
+    }
+}</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>8. Advanced Patterns and Techniques</h2>
+            
+            <h3>8.1 Multiple Connections</h3>
+            <pre><code># Single source to multiple targets
+load_balancer -> server1, server2, server3
+
+# Multiple sources to single target
+client1, client2, client3 -> api_gateway
+
+# Complex connection patterns
+source -> middle1, middle2 -> final</code></pre>
+
+            <h3>8.2 Ports and Connection Points</h3>
+            <pre><code>firewall: Security Device {
+    ports: {
+        in: Inbound
+        out: Outbound
+    }
+}
+
+internet -> firewall.in
+firewall.out -> internal_network</code></pre>
+
+            <h3>8.3 Layered Diagrams</h3>
+            <pre><code># Current state (opaque)
+current: {
+    style.opacity: 1
+    components: {...}
+}
+
+# Future state (semi-transparent)
+future: {
+    style.opacity: 0.5
+    components: {...}
+}</code></pre>
+
+            <h3>8.4 Diagram Templates</h3>
+            <pre><code># Reusable template for microservices
+template microservice {
+    shape: rectangle
+    style.fill: "#e6e6fa"
+    service: {
+        api: API
+        db: Database {shape: cylinder}
+        api -> db
+    }
+}
+
+# Instantiate templates
+user_service: microservice
+order_service: microservice
+payment_service: microservice</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>9. Real-World Diagram Examples</h2>
+            
+            <h3>9.1 Complete Cloud Architecture</h3>
+            <pre><code>direction: right
+gap: 40
+
+# Internet and CDN
+internet: Internet {shape: cloud}
+cdn: CDN {
+    edge_nodes: {
+        shape: oval
+        direction: down
+        edge1: US-East
+        edge2: EU-West
+        edge3: AP-South
+    }
+}
+
+# Application Tier
+app: {
+    direction: down
+    gap: 24
+    
+    frontend: {
+        web: Web Servers
+        static: Static Assets
+    }
+    
+    backend: {
+        api: API Gateway
+        services: {
+            direction: right
+            users: User Service
+            orders: Order Service
+            payments: Payment Service
+        }
+    }
+}
+
+# Data Tier
+data: {
+    direction: down
+    cache: Redis Cluster
+    db: {
+        primary: PostgreSQL
+        replica: Read Replica
+        primary -> replica
+    }
+}
+
+# Connections
+internet -> cdn -> app.frontend
+app.frontend -> app.backend
+app.backend.services -> data</code></pre>
+
+            <h3>9.2 Kubernetes Cluster</h3>
+            <pre><code>direction: down
+
+cluster: Kubernetes {
+    style.fill: "#f0f8ff"
+    
+    control_plane: {
+        direction: right
+        api: API Server
+        scheduler: Scheduler
+        cm: Controller Manager
+        etcd: etcd {shape: cylinder}
+    }
+    
+    workers: {
+        direction: right
+        gap: 16
+        
+        node1: Worker Node {
+            pods: {
+                direction: down
+                pod1: App Pod
+                pod2: Service Pod
+            }
+        }
+        
+        node2: Worker Node {
+            pods: {
+                direction: down
+                pod1: App Pod
+                pod2: Service Pod
+            }
+        }
+    }
+}
+
+control_plane -> workers</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>10. Best Practices</h2>
+            
+            <h3>10.1 Organization</h3>
+            <ul>
+                <li>Group related components early using containers</li>
+                <li>Use consistent naming conventions (e.g., <code>service_web</code>, <code>db_primary</code>)</li>
+                <li>Break large diagrams into smaller, focused ones</li>
+            </ul>
+
+            <h3>10.2 Styling</h3>
+            <ul>
+                <li>Define color palette at the start</li>
+                <li>Use semantic colors (e.g., red for critical, blue for data)</li>
+                <li>Limit font variations (2-3 sizes max)</li>
+            </ul>
+
+            <h3>10.3 Maintenance</h3>
+            <ul>
+                <li>Version control your D2 files</li>
+                <li>Include documentation in notes</li>
+                <li>Automate diagram generation in CI/CD</li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h2>11. Troubleshooting</h2>
+            
+            <h3>Common Issues</h3>
+            <div class="issues-grid">
+                <div>
+                    <h4>Syntax Errors</h4>
+                    <p><strong>Symptom:</strong> Diagram fails to render</p>
+                    <p><strong>Fix:</strong> Check for:
+                        <ul>
+                            <li>Missing colons in labels</li>
+                            <li>Unclosed braces</li>
+                            <li>Invalid characters in IDs</li>
+                        </ul>
+                    </p>
+                </div>
+                <div>
+                    <h4>Layout Problems</h4>
+                    <p><strong>Symptom:</strong> Overlapping nodes</p>
+                    <p><strong>Fix:</strong>
+                        <ul>
+                            <li>Adjust <code>gap</code> values</li>
+                            <li>Set explicit <code>direction</code></li>
+                            <li>Use grid layout for precise control</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            <h3>Debugging Tips</h3>
+            <pre><code># 1. Simplify the diagram
+# Comment out sections to isolate issues
+
+# 2. Check renderer compatibility
+# Some features may not be supported everywhere
+
+# 3. Validate with playground
+# Use https://d2lang.com/playground for testing</code></pre>
+        </section>
+
+        <section class="help-section">
+            <h2>12. Resources and Tools</h2>
+            
+            <h3>Official Resources</h3>
+            <ul>
+                <li><a href="https://d2lang.com/docs">Official Documentation</a></li>
+                <li><a href="https://d2lang.com/playground">Interactive Playground</a></li>
+                <li><a href="https://github.com/terrastruct/d2">GitHub Repository</a></li>
+            </ul>
+
+            <h3>Community</h3>
+            <ul>
+                <li><a href="https://discord.gg/d2lang">Discord Community</a></li>
+                <li><a href="https://stackoverflow.com/questions/tagged/d2lang">Stack Overflow</a></li>
+            </ul>
+
+            <h3>Integrations</h3>
+            <ul>
+                <li><a href="https://marketplace.visualstudio.com/items?itemName=terrastruct.d2-vscode">VS Code Extension</a></li>
+                <li><a href="https://github.com/terrastruct/d2/blob/master/docs/CI-CD.md">CI/CD Integration Guide</a></li>
+            </ul>
+        </section>
+
+        <section class="help-section">
+            <h2>13. Appendix: Full Syntax Reference</h2>
+            
+            <h3>Node Properties</h3>
+            <table class="syntax-reference">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>shape</code></td>
+                        <td>Node shape type</td>
+                        <td><code>shape: circle</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>label</code></td>
+                        <td>Display text</td>
+                        <td><code>label: "Main Server"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.fill</code></td>
+                        <td>Background color</td>
+                        <td><code>style.fill: "#f0f8ff"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.stroke</code></td>
+                        <td>Border color</td>
+                        <td><code>style.stroke: "#4682b4"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>icon</code></td>
+                        <td>Icon URL or name</td>
+                        <td><code>icon: "server"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>note</code></td>
+                        <td>Documentation text</td>
+                        <td><code>note: "Production DB"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Edge Properties</h3>
+            <table class="syntax-reference">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>label</code></td>
+                        <td>Connection label</td>
+                        <td><code>A -> B: "Request"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.stroke</code></td>
+                        <td>Line color</td>
+                        <td><code>style.stroke: "#ff0000"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.stroke-width</code></td>
+                        <td>Line thickness</td>
+                        <td><code>style.stroke-width: 3</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.stroke-dash</code></td>
+                        <td>Dashed line</td>
+                        <td><code>style.stroke-dash: 5</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>style.curve</code></td>
+                        <td>Curved edge</td>
+                        <td><code>style.curve: true</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,243 @@
+:root {
+  --bg: #f7f7fa;
+  --fg: #23272f;
+  --accent: #2563eb;
+  --panel-bg: #fff;
+  --panel-shadow: 0 4px 32px #0001;
+  --border: #e3e3e3;
+  --btn-bg: #2563eb;
+  --btn-fg: #fff;
+  --btn-hover: #174ab6;
+  --input-bg: #fafaff;
+  --input-fg: #23272f;
+}
+
+[data-theme="dark"] {
+  --bg: #191c22;
+  --fg: #f1f3fa;
+  --accent: #60a5fa;
+  --panel-bg: #222631;
+  --panel-shadow: 0 4px 32px #0005;
+  --border: #333849;
+  --btn-bg: #3b82f6;
+  --btn-fg: #f1f3fa;
+  --btn-hover: #174ab6;
+  --input-bg: #252834;
+  --input-fg: #f1f3fa;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  height: 100vh;
+  transition: background 0.2s, color 0.2s;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  gap: 2.2rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel-bg);
+  box-shadow: var(--panel-shadow);
+  border-right: 1px solid var(--border);
+}
+
+.panel.left {
+  width: 540px;
+  min-width: 420px;
+  max-width: 680px;
+  padding: 0 0 1rem 0;
+  gap: 1rem;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+#theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+#theme-toggle:hover {
+  background: var(--btn-hover);
+}
+#theme-toggle:after {
+  content: "🌙";
+  font-size: 1.15rem;
+  transition: content 0.25s;
+}
+[data-theme="dark"] #theme-toggle:after {
+  content: "☀️";
+}
+
+#d2-input {
+  flex: 1;
+  width: 100%;
+  min-height: 320px;
+  resize: none;
+  border: none;
+  background: var(--input-bg);
+  color: var(--input-fg);
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "JetBrains Mono", "Fira Mono", monospace;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+#drop-area {
+  margin: 1rem;
+  padding: 1.2rem 0.8rem;
+  border: 2px dashed var(--accent);
+  border-radius: 1rem;
+  background: var(--input-bg);
+  color: var(--accent);
+  text-align: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+}
+#drop-area.dragover {
+  border: 2.5px solid var(--btn-bg);
+  background: #e8edfa;
+  color: var(--btn-bg);
+}
+#drop-area input[type="file"] {
+  display: none;
+}
+
+.export-options {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  align-items: center;
+}
+
+.export-options button,
+.export-options select {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.25rem 0;
+  transition: background 0.15s;
+}
+
+.export-options button:hover {
+  background: var(--btn-hover);
+}
+.export-options select {
+  background: var(--panel-bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.75rem;
+  margin-left: 0.3rem;
+}
+
+.panel.right {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  background: var(--bg);
+  min-width: 0;
+  border-right: none;
+}
+
+#diagram-container {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  border-radius: 2.2rem;
+  border: 3px solid var(--border);
+  background: var(--panel-bg);
+  box-shadow: 0 8px 32px #0002;
+}
+
+#diagram-loading {
+  position: absolute;
+  color: var(--accent);
+  font-size: 1.3rem;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: none;
+  font-weight: bold;
+}
+
+#svg-wrapper {
+  width: 100%;
+  height: 100%;
+  min-width: 280px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+#svg-wrapper svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: auto;
+  background: transparent;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px #0002;
+  transition: background 0.2s;
+}
+
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .panel.left {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+  .panel.right {
+    min-height: 320px;
+  }
+  #diagram-container {
+    border-radius: 1.2rem;
+  }
+}

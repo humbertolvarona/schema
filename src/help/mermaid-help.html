@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Definitive Mermaid Diagramming Guide | Diagrams Portal</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      /* Enhanced styling for comprehensive guide */
+      .diagram-type {
+        background-color: var(--diagram-bg);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 25px 0;
+        border-left: 4px solid var(--diagram-accent);
+      }
+      .syntax-card {
+        background: var(--syntax-bg);
+        border-radius: 6px;
+        padding: 15px;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .example-comparison {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 25px 0;
+      }
+      .example-comparison pre {
+        margin: 0;
+      }
+      .use-case {
+        background: var(--case-bg);
+        padding: 15px;
+        border-radius: 6px;
+        margin: 15px 0;
+      }
+      .advanced-feature {
+        background: var(--advanced-bg);
+        border-left: 4px solid var(--advanced-accent);
+        padding: 15px;
+        margin: 20px 0;
+      }
+      .cheat-sheet {
+        columns: 2;
+        column-gap: 30px;
+      }
+      @media (max-width: 768px) {
+        .example-comparison {
+          grid-template-columns: 1fr;
+        }
+        .cheat-sheet {
+          columns: 1;
+        }
+      }
+    </style>
+    <script src="../script.js" defer></script>
+  </head>
+  <body>
+    <header class="container">
+      <div class="logo">
+        <img
+          src="../icons/documentation.svg"
+          width="48"
+          height="48"
+          alt="Mermaid Icon"
+        />
+        <span>Mermaid Complete Reference</span>
+      </div>
+      <a href="../index.html" class="portal-link">Back to Portal</a>
+      <button
+        id="theme-toggle"
+        class="theme-toggle-btn"
+        aria-label="Toggle theme"
+      ></button>
+    </header>
+
+    <main class="container help-content">
+      <h1>The Definitive Mermaid Diagramming Guide</h1>
+      <p class="subtitle">
+        Master every aspect of Mermaid diagrams with this comprehensive
+        reference covering all diagram types, advanced features, real-world
+        applications, and professional best practices.
+      </p>
+
+      <section class="help-section">
+        <h2>1. Mermaid Fundamentals</h2>
+
+        <div class="diagram-type">
+          <h3>1.1 Core Concepts</h3>
+          <p>
+            Mermaid transforms text definitions into diagrams using a simple but
+            powerful syntax:
+          </p>
+
+          <div class="syntax-card">
+            <h4>Basic Structure</h4>
+            <pre><code>%% Comments start with %%
+diagramType Direction
+    element1 --> element2
+    subgraph Group
+        element3
+        element4
+    end</code></pre>
+          </div>
+
+          <div class="example-comparison">
+            <div>
+              <h4>Text Definition</h4>
+              <pre><code>graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Action]
+    B -->|No| D[Alternative]</code></pre>
+            </div>
+            <div>
+              <h4>Rendered Diagram</h4>
+              <div class="diagram-preview">
+                <!-- Diagram would render here -->
+                [Flowchart visualization]
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>Key Advantages</h4>
+            <ul>
+              <li>
+                <strong>Version Control Friendly:</strong> Diagrams as code that
+                can be diffed and merged
+              </li>
+              <li>
+                <strong>Dynamic Rendering:</strong> Diagrams update
+                automatically when source changes
+              </li>
+              <li>
+                <strong>Wide Compatibility:</strong> Works in GitHub, GitLab, VS
+                Code, Obsidian, and more
+              </li>
+              <li>
+                <strong>Extensive Customization:</strong> Full control over
+                styling and layout
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>2. Flowcharts: Complete Reference</h2>
+
+        <div class="diagram-type">
+          <h3>2.1 Node Types</h3>
+          <div class="cheat-sheet">
+            <div class="syntax-card">
+              <h4>Basic Nodes</h4>
+              <ul>
+                <li><code>A[Rectangle]</code> - Standard rectangular node</li>
+                <li><code>B(Rounded)</code> - Rounded rectangle</li>
+                <li><code>C((Circle))</code> - Circular node</li>
+                <li><code>D{Diamond}</code> - Decision diamond</li>
+                <li><code>E([Stadium])</code> - Stadium shape</li>
+                <li><code>F[[Subroutine]]</code> - Subroutine shape</li>
+                <li><code>G[/Parallelogram/]</code> - Parallelogram</li>
+                <li>
+                  <code>H[\Parallelogram alt\]</code> - Reverse parallelogram
+                </li>
+                <li><code>I[(Database)]</code> - Cylinder/database</li>
+              </ul>
+            </div>
+
+            <div class="syntax-card">
+              <h4>Special Nodes</h4>
+              <ul>
+                <li><code>J&gt;Asymmetric]</code> - Asymmetric shape</li>
+                <li><code>K{{Hexagon}}</code> - Hexagonal node</li>
+                <li><code>L[/Trapezoid\]</code> - Trapezoid</li>
+                <li><code>M[\Trapezoid alt/]</code> - Reverse trapezoid</li>
+                <li><code>N((Double circle))</code> - Double circle</li>
+                <li><code>O[/Cloud\]</code> - Cloud shape</li>
+                <li>
+                  <code>P[Multi-line<br />label]</code> - HTML line breaks
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>2.2 Connection Types</h3>
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Syntax</th>
+                <th>Appearance</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>A --> B</code></td>
+                <td>→</td>
+                <td>Solid line with arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>A --- B</code></td>
+                <td>―</td>
+                <td>Solid line without arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>A -.-> B</code></td>
+                <td>- -→</td>
+                <td>Dotted line with arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>A -.- B</code></td>
+                <td>- - -</td>
+                <td>Dotted line without arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>A ==> B</code></td>
+                <td>⇒</td>
+                <td>Thick line with arrowhead</td>
+              </tr>
+              <tr>
+                <td><code>A -- text --> B</code></td>
+                <td>―text→</td>
+                <td>Connection with label</td>
+              </tr>
+              <tr>
+                <td><code>A --o B</code></td>
+                <td>―○</td>
+                <td>Ending with circle</td>
+              </tr>
+              <tr>
+                <td><code>A --x B</code></td>
+                <td>―×</td>
+                <td>Ending with cross</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="advanced-feature">
+            <h4>Advanced Flowchart Techniques</h4>
+            <div class="example-comparison">
+              <div>
+                <h5>Parallel Connections</h5>
+                <pre><code>graph LR
+    A --> B & C --> D</code></pre>
+              </div>
+              <div>
+                <h5>Multiple Links</h5>
+                <pre><code>graph TD
+    A --> B
+    A --> C
+    B --> D
+    C --> D</code></pre>
+              </div>
+            </div>
+
+            <div class="example-comparison">
+              <div>
+                <h5>Direction Control</h5>
+                <pre><code>graph TB
+    A --> B
+    B --> C
+    B --> D
+    D --> E
+    C --> E</code></pre>
+              </div>
+              <div>
+                <h5>Subgraph Clustering</h5>
+                <pre><code>graph LR
+    subgraph "Cluster A"
+        A1 --> A2
+    end
+    subgraph "Cluster B"
+        B1 --> B2
+    end
+    A1 --> B1</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>3. Sequence Diagrams: Professional Patterns</h2>
+
+        <div class="diagram-type">
+          <h3>3.1 Core Syntax Elements</h3>
+          <div class="syntax-card">
+            <h4>Participants and Messages</h4>
+            <pre><code>sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: Request
+    Server-->>Client: Response</code></pre>
+          </div>
+
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Syntax</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Participant</td>
+                <td><code>participant A</code></td>
+                <td>Declares a diagram actor</td>
+              </tr>
+              <tr>
+                <td>Actor</td>
+                <td><code>actor User</code></td>
+                <td>Human participant (stick figure)</td>
+              </tr>
+              <tr>
+                <td>Sync Message</td>
+                <td><code>A->>B: Message</code></td>
+                <td>Solid line with arrowhead</td>
+              </tr>
+              <tr>
+                <td>Async Message</td>
+                <td><code>A->)B: Message</code></td>
+                <td>Open arrowhead</td>
+              </tr>
+              <tr>
+                <td>Return</td>
+                <td><code>A-->>B: Response</code></td>
+                <td>Dashed line</td>
+              </tr>
+              <tr>
+                <td>Self Message</td>
+                <td><code>A->>A: Note</code></td>
+                <td>Loopback message</td>
+              </tr>
+              <tr>
+                <td>Note</td>
+                <td><code>Note right of A: Text</code></td>
+                <td>Annotation on participant</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>3.2 Control Structures</h3>
+          <div class="example-comparison">
+            <div>
+              <h4>Alternatives (if/else)</h4>
+              <pre><code>sequenceDiagram
+    User->>System: Login
+    alt Valid credentials
+        System-->>User: Success
+    else Invalid
+        System-->>User: Failure
+    end</code></pre>
+            </div>
+            <div>
+              <h4>Loops</h4>
+              <pre><code>sequenceDiagram
+    loop Every minute
+        Client->>Server: Heartbeat
+        Server-->>Client: Ack
+    end</code></pre>
+            </div>
+          </div>
+
+          <div class="example-comparison">
+            <div>
+              <h4>Parallel Actions</h4>
+              <pre><code>sequenceDiagram
+    par Parallel
+        A->>B: Message 1
+    and
+        A->>C: Message 2
+    end</code></pre>
+            </div>
+            <div>
+              <h4>Critical Region</h4>
+              <pre><code>sequenceDiagram
+    critical Transaction
+        A->>B: Begin
+        B->>C: Commit
+    option Timeout
+        A->>B: Rollback
+    end</code></pre>
+            </div>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>Advanced Sequence Techniques</h4>
+            <div class="syntax-card">
+              <h5>Activations</h5>
+              <pre><code>sequenceDiagram
+    A->>+B: Request
+    B->>+C: Query
+    C-->>-B: Data
+    B-->>-A: Response</code></pre>
+              <p>
+                Use <code>+</code> to activate and <code>-</code> to deactivate
+                a participant's lifeline
+              </p>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Background Highlighting</h5>
+              <pre><code>sequenceDiagram
+    rect rgba(0, 255, 0, 0.1)
+        A->>B: Important Step
+        B->>C: Verification
+    end</code></pre>
+              <p>Highlight sections with colored backgrounds</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>4. Class Diagrams: UML Mastery</h2>
+
+        <div class="diagram-type">
+          <h3>4.1 Class Definition Syntax</h3>
+          <div class="syntax-card">
+            <h4>Basic Class Structure</h4>
+            <pre><code>classDiagram
+    class BankAccount {
+        -String owner
+        -BigDecimal balance
+        +deposit(amount)
+        +withdraw(amount)
+        +getBalance() BigDecimal
+    }</code></pre>
+          </div>
+
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Visibility</th>
+                <th>Symbol</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Public</td>
+                <td><code>+</code></td>
+                <td><code>+getBalance()</code></td>
+              </tr>
+              <tr>
+                <td>Private</td>
+                <td><code>-</code></td>
+                <td><code>-balance</code></td>
+              </tr>
+              <tr>
+                <td>Protected</td>
+                <td><code>#</code></td>
+                <td><code>#internalId</code></td>
+              </tr>
+              <tr>
+                <td>Package/Internal</td>
+                <td><code>~</code></td>
+                <td><code>~logger</code></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>4.2 Relationship Types</h3>
+          <div class="cheat-sheet">
+            <div class="syntax-card">
+              <h4>Inheritance</h4>
+              <pre><code>classDiagram
+    Animal <|-- Dog
+    Animal <|-- Cat</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h4>Composition</h4>
+              <pre><code>classDiagram
+    Car *-- Engine
+    Car *-- Wheel</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h4>Aggregation</h4>
+              <pre><code>classDiagram
+    Department o-- Employee</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h4>Association</h4>
+              <pre><code>classDiagram
+    Driver -- Car</code></pre>
+            </div>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>Advanced Class Features</h4>
+            <div class="example-comparison">
+              <div>
+                <h5>Abstract Classes</h5>
+                <pre><code>classDiagram
+    class Shape {
+        &lt;&lt;abstract&gt;&gt;
+        +draw()
+    }</code></pre>
+              </div>
+              <div>
+                <h5>Interfaces</h5>
+                <pre><code>classDiagram
+    class Serializable {
+        &lt;&lt;interface&gt;&gt;
+        +serialize()
+    }</code></pre>
+              </div>
+            </div>
+
+            <div class="example-comparison">
+              <div>
+                <h5>Generics</h5>
+                <pre><code>classDiagram
+    class Box~T~ {
+        -T content
+        +get() T
+    }</code></pre>
+              </div>
+              <div>
+                <h5>Annotations</h5>
+                <pre><code>classDiagram
+    class User {
+        &lt;&lt;Entity&gt;&gt;
+        +id
+    }</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>5. State Diagrams: Complex Systems</h2>
+
+        <div class="diagram-type">
+          <h3>5.1 Basic State Machine</h3>
+          <div class="syntax-card">
+            <pre><code>stateDiagram-v2
+    [*] --> Idle
+    Idle --> Processing: start
+    Processing --> Success: complete
+    Processing --> Error: failure
+    Error --> Processing: retry
+    Success --> [*]</code></pre>
+          </div>
+
+          <h3>5.2 Advanced State Features</h3>
+          <div class="example-comparison">
+            <div>
+              <h4>Composite States</h4>
+              <pre><code>stateDiagram-v2
+    [*] --> NotLoggedIn
+    state Login {
+        [*] --> Entering
+        Entering --> Validating
+        Validating --> Authenticated
+    }
+    NotLoggedIn --> Login
+    Authenticated --> [*]</code></pre>
+            </div>
+            <div>
+              <h4>Concurrent States</h4>
+              <pre><code>stateDiagram-v2
+    [*] --> Active
+    state Active {
+        [*] --> Downloading
+        [*] --> Uploading
+        Downloading --> Completed
+        Uploading --> Completed
+    }</code></pre>
+            </div>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>State Diagram Techniques</h4>
+            <div class="syntax-card">
+              <h5>History States</h5>
+              <pre><code>stateDiagram-v2
+    [*] --> A
+    A --> B
+    B --> C
+    C --> H: Remember
+    state H {
+        [*] --> A
+    }</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Notes and Annotations</h5>
+              <pre><code>stateDiagram-v2
+    [*] --> Idle
+    Idle --> Processing
+    note right of Processing: This may take time
+    Processing --> [*]</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>6. Entity Relationship Diagrams</h2>
+
+        <div class="diagram-type">
+          <h3>6.1 Basic ER Syntax</h3>
+          <div class="syntax-card">
+            <pre><code>erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE_ITEM : contains
+    CUSTOMER {
+        string name
+        string email PK
+    }</code></pre>
+          </div>
+
+          <h3>6.2 Relationship Cardinality</h3>
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Notation</th>
+                <th>Relationship</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>||--||</code></td>
+                <td>One-to-one</td>
+                <td>User ||--|| Profile</td>
+              </tr>
+              <tr>
+                <td><code>||--o{</code></td>
+                <td>One-to-many</td>
+                <td>Customer ||--o{ Order</td>
+              </tr>
+              <tr>
+                <td><code>o{--o{</code></td>
+                <td>Many-to-many</td>
+                <td>Student o{--o{ Course</td>
+              </tr>
+              <tr>
+                <td><code>||--|{</code></td>
+                <td>One-and-only-one to many</td>
+                <td>Country ||--|{ City</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="advanced-feature">
+            <h4>Advanced ER Features</h4>
+            <div class="syntax-card">
+              <h5>Attribute Types</h5>
+              <pre><code>erDiagram
+    USER {
+        int id PK
+        string name
+        date createdAt
+        boolean verified
+        float balance
+    }</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Weak Entities</h5>
+              <pre><code>erDiagram
+    ORDER ||--|{ ORDER_ITEM : contains
+    ORDER_ITEM {
+        int quantity
+        float price
+    }</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>7. Gantt Charts: Project Planning</h2>
+
+        <div class="diagram-type">
+          <h3>7.1 Basic Gantt Syntax</h3>
+          <div class="syntax-card">
+            <pre><code>gantt
+    title Project Timeline
+    dateFormat  YYYY-MM-DD
+    section Design
+    Research       :a1, 2025-06-01, 5d
+    Prototype      :after a1, 3d
+    section Development
+    Implementation :2025-06-09, 10d</code></pre>
+          </div>
+
+          <h3>7.2 Task Properties</h3>
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Syntax</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ID</td>
+                <td><code>:id,</code></td>
+                <td>Task identifier for references</td>
+              </tr>
+              <tr>
+                <td>Start Date</td>
+                <td><code>YYYY-MM-DD</code></td>
+                <td>Absolute start date</td>
+              </tr>
+              <tr>
+                <td>Duration</td>
+                <td><code>5d</code></td>
+                <td>Days (d), weeks (w), months (m)</td>
+              </tr>
+              <tr>
+                <td>Dependency</td>
+                <td><code>after id</code></td>
+                <td>Relative start time</td>
+              </tr>
+              <tr>
+                <td>Critical</td>
+                <td><code>:crit,</code></td>
+                <td>Highlights critical path</td>
+              </tr>
+              <tr>
+                <td>Active</td>
+                <td><code>:active,</code></td>
+                <td>Currently active task</td>
+              </tr>
+              <tr>
+                <td>Done</td>
+                <td><code>:done,</code></td>
+                <td>Completed task</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="advanced-feature">
+            <h4>Advanced Gantt Features</h4>
+            <div class="syntax-card">
+              <h5>Milestones</h5>
+              <pre><code>gantt
+    milestone :m1, 2025-06-15, 0d</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Custom Styling</h5>
+              <pre><code>gantt
+    taskStyle 1 fill:#f9f,stroke:#333
+    taskStyle 2 fill:#9f9,stroke:#090</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>8. Advanced Styling and Configuration</h2>
+
+        <div class="diagram-type">
+          <h3>8.1 Theme Configuration</h3>
+          <div class="syntax-card">
+            <pre><code>%%{init: {
+    "theme": "dark",
+    "themeVariables": {
+        "primaryColor": "#1e1e1e",
+        "edgeLabelBackground": "#2d2d2d",
+        "fontFamily": "Arial"
+    },
+    "fontFamily": "Arial"
+}}%%</code></pre>
+          </div>
+
+          <h3>8.2 CSS Classes</h3>
+          <div class="example-comparison">
+            <div>
+              <h4>Class Definition</h4>
+              <pre><code>classDef default fill:#f9f,stroke:#333
+classDef highlight fill:#ff9,stroke:#f80</code></pre>
+            </div>
+            <div>
+              <h4>Class Application</h4>
+              <pre><code>graph LR
+    A --> B
+    class A highlight</code></pre>
+            </div>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>Advanced Styling Techniques</h4>
+            <div class="syntax-card">
+              <h5>Direct Node Styling</h5>
+              <pre><code>graph LR
+    A[Start]
+    style A fill:#6be,stroke:#333,stroke-width:4px</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Link Styling</h5>
+              <pre><code>graph LR
+    A --> B
+    linkStyle 0 stroke:#f66,stroke-width:2px</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>9. Integration and Deployment</h2>
+
+        <div class="diagram-type">
+          <h3>9.1 Markdown Integration</h3>
+          <div class="syntax-card">
+            <pre><code>```mermaid
+graph LR
+    A[Markdown] --> B[Mermaid]
+```</code></pre>
+            <p>
+              Works in GitHub, GitLab, VS Code, Obsidian, and many other
+              Markdown processors
+            </p>
+          </div>
+
+          <h3>9.2 HTML Integration</h3>
+          <div class="syntax-card">
+            <pre><code>&lt;div class="mermaid"&gt;
+graph LR
+    A[HTML] --> B[Diagram]
+&lt;/div&gt;
+&lt;script src="mermaid.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;mermaid.initialize();&lt;/script&gt;</code></pre>
+          </div>
+
+          <div class="advanced-feature">
+            <h4>Advanced Integration</h4>
+            <div class="syntax-card">
+              <h5>Dynamic Diagrams</h5>
+              <pre><code>// Generate Mermaid code dynamically
+function generateDiagram(data) {
+    return `graph LR
+        A[${data.input}] --> B[${data.output}]`;
+}</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>API Usage</h5>
+              <pre><code>mermaid.mermaidAPI.render('diagram', definition, svg => {
+    document.getElementById('container').innerHTML = svg;
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>10. Professional Best Practices</h2>
+
+        <div class="diagram-type">
+          <h3>10.1 Diagram Organization</h3>
+          <ul>
+            <li>Use meaningful, consistent naming conventions</li>
+            <li>Limit diagrams to 15-20 elements for readability</li>
+            <li>Break complex diagrams into smaller, focused ones</li>
+            <li>Use subgraphs and containers to group related elements</li>
+            <li>Add descriptive titles and legends</li>
+          </ul>
+
+          <h3>10.2 Version Control</h3>
+          <ul>
+            <li>
+              Store Mermaid source files in Git (not just rendered images)
+            </li>
+            <li>Use meaningful commit messages for diagram changes</li>
+            <li>Consider generating diagrams during build process</li>
+            <li>Maintain a diagram catalog or index</li>
+          </ul>
+
+          <div class="advanced-feature">
+            <h4>Advanced Workflows</h4>
+            <div class="syntax-card">
+              <h5>Automated Documentation</h5>
+              <pre><code># Generate diagrams from code annotations
+/**
+ * @mermaid
+ * sequenceDiagram
+ *   Client->>Server: API Call
+ */
+function apiCall() { ... }</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>CI/CD Integration</h5>
+              <pre><code># Sample CI pipeline
+steps:
+  - name: Generate diagrams
+    run: |
+      npm install -g @mermaid-js/mermaid-cli
+      mmdc -i docs/*.mmd -o static/images/</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>11. Troubleshooting and Debugging</h2>
+
+        <div class="diagram-type">
+          <h3>11.1 Common Issues</h3>
+          <table class="syntax-reference">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Solution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Blank diagram</td>
+                <td>Check Mermaid is loaded and initialized</td>
+              </tr>
+              <tr>
+                <td>Syntax errors</td>
+                <td>Validate in Mermaid Live Editor</td>
+              </tr>
+              <tr>
+                <td>Incorrect layout</td>
+                <td>Verify direction (TD, LR etc.) and subgraphs</td>
+              </tr>
+              <tr>
+                <td>Missing features</td>
+                <td>Check Mermaid version requirements</td>
+              </tr>
+              <tr>
+                <td>Rendering issues</td>
+                <td>Try simpler diagram to isolate problem</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>11.2 Debugging Tools</h3>
+          <ul>
+            <li>
+              <a href="https://mermaid.live">Mermaid Live Editor</a> for testing
+            </li>
+            <li>Browser developer tools for integration issues</li>
+            <li>Mermaid's <code>logLevel</code> setting for verbose output</li>
+            <li>Simplified test cases to isolate problems</li>
+          </ul>
+
+          <div class="advanced-feature">
+            <h4>Advanced Debugging</h4>
+            <div class="syntax-card">
+              <h5>Error Logging</h5>
+              <pre><code>mermaid.initialize({
+    logLevel: 1, // 1-5 (verbose)
+    securityLevel: 'loose'
+});</code></pre>
+            </div>
+
+            <div class="syntax-card">
+              <h5>Custom Error Handling</h5>
+              <pre><code>try {
+    mermaid.parse(text);
+} catch (err) {
+    console.error('Mermaid error:', err);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="help-section">
+        <h2>12. Resources and Next Steps</h2>
+
+        <div class="diagram-type">
+          <h3>12.1 Official Resources</h3>
+          <ul>
+            <li>
+              <a href="https://mermaid.js.org">Mermaid.js Documentation</a>
+            </li>
+            <li>
+              <a href="https://mermaid.js.org/config/configuration.html"
+                >Configuration Options</a
+              >
+            </li>
+            <li>
+              <a href="https://mermaid.js.org/syntax/examples.html"
+                >Example Gallery</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mermaid-js/mermaid"
+                >GitHub Repository</a
+              >
+            </li>
+          </ul>
+
+          <h3>12.2 Learning Resources</h3>
+          <ul>
+            <li>
+              <a href="https://mermaid.js.org/ecosystem/tutorials.html"
+                >Official Tutorials</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/c/MermaidJS">Video Tutorials</a>
+            </li>
+            <li>
+              <a href="https://stackoverflow.com/questions/tagged/mermaid"
+                >Stack Overflow</a
+              >
+            </li>
+          </ul>
+
+          <h3>12.3 Tools and Extensions</h3>
+          <ul>
+            <li>
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid"
+                >VS Code Extension</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mermaid-js/mermaid-cli"
+                >Mermaid CLI</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mermaid-js/mermaid-mindmap"
+                >Mindmap Plugin</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mermaid-js/mermaid-live-editor"
+                >Live Editor Source</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
