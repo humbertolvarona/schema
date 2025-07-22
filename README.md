@@ -2,6 +2,10 @@
 
 D2, Mermaid &amp; Nomnoml Diagrams from Text
 
+## Website (only Mermaid) available at
+
+[https://mermaid-hlvarona.pages.dev](https://mermaid-hlvarona.pages.dev)
+
 # Diagrams Portal Documentation
 
 ## Features
